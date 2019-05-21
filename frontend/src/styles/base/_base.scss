@@ -1,0 +1,36 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: $size-md;
+    background: $body-bg;
+    color: $text-color;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: $text-color;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+        list-style: none;
+    }
+}

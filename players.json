@@ -1,0 +1,22 @@
+{
+	"data": [
+		{
+			"Name": "Bran Stark",
+			"Age": 22,
+			"Location": {
+				"City": "Castle Black",
+				"Province": "North",
+				"Country": "GoT"
+			}
+    },
+    {
+			"Name": "Rob Stark",
+			"Age": 22,
+			"Location": {
+				"City": "Castle Black",
+				"Province": "North",
+				"Country": "GoT"
+			}
+		}
+	]
+}

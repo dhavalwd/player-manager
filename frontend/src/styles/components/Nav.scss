@@ -1,0 +1,16 @@
+.Nav {
+    background-color: $grey;
+    border-bottom: 1px solid $border-grey;
+    padding: ($gutter*2) 0;
+
+    ul {
+        display: flex;
+        li {
+            padding: 0 $gutter 0 0;
+
+            a {
+                font-weight: bold;
+            }
+        }
+    }
+}

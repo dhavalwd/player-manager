@@ -1,0 +1,29 @@
+$player-card-width: 300px;
+
+.Player {
+  &-content {
+    width: $player-card-width;
+    border: 1px solid rgba($border-grey, 0.6);
+    border-radius: 10px;
+
+    h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+  }
+
+  &-name {
+    background-color: $blue-dark;
+    color: $white;
+    padding: $gutter;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &-details {
+    padding: $gutter;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
