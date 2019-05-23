@@ -10,6 +10,7 @@ class Player extends React.Component {
   }
 
   deletePlayer() {
+    // Make a call to delete players
     axios
       .delete(
         `http://localhost/player-manager/backend/api/players/${this.props.id}`,
@@ -19,13 +20,18 @@ class Player extends React.Component {
       )
       .then(res => {
         console.log(res);
+        // Update feedback status on the page with the text.
         $(".Player-feedback span")
           .addClass("is-success")
           .removeClass("is-error")
           .text("Successfully deleted player");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 400);
       })
       .catch(error => {
         console.log(error);
+        // Show error if something goes wrong during call
         $(".Player-feedback span")
           .addClass("is-error")
           .removeClass("is-success")

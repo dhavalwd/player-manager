@@ -12,6 +12,7 @@ class PlayersList extends React.Component {
   }
 
   componentDidMount() {
+    // Get all players and set the state
     axios
       .get(`http://localhost/player-manager/backend/api/players`)
       .then(res => {
@@ -25,7 +26,7 @@ class PlayersList extends React.Component {
         <div className="PlayersList-title">
           <h2>
             {this.state.players.length > 0
-              ? "List of Players Below"
+              ? "Available Players"
               : "No players available"}
           </h2>
         </div>

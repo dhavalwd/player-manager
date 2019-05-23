@@ -4,9 +4,6 @@ import PlayerManager from "../components/PlayerManager";
 import Header from "../components/Header";
 import ViewPlayer from "../components/ViewPlayer";
 import UploadPlayer from "../components/UploadPlayer";
-// import AddPlayerPage from '../components/AddPlayerPage';
-// import EditPlayerPage from '../components/EditPlayerPage';
-// import NotFoundPage from '../components/NotFoundPage';
 
 const MainRouter = props => {
   return (

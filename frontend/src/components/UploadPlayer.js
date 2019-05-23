@@ -12,16 +12,22 @@ class UploadPlayer extends React.Component {
 
   onSubmitPlayer(e) {
     e.preventDefault();
-
-    // Check if file is there to upload
     let $input = $("input[name=playerData]");
     let $files = $input[0].files;
 
+    // Check if file is selected
     if ($files.length === 0) {
       this.showError($input.closest(".form-group"), "File is required");
       return;
     }
 
+    // If input is not valid, then return;
+    if (!$input.is(".is-valid")) {
+      this.showError($input.closest(".form-group"), "File is not valid.");
+      return;
+    }
+
+    // Use formData to send file to API
     let formData = new FormData();
 
     formData.append("File", $files[0]);
@@ -55,24 +61,40 @@ class UploadPlayer extends React.Component {
     let $this = $(e.currentTarget);
     let $files = $this[0].files;
 
+    // Remove in-valid from input on file change start
+    // We'll figure out below if it's valid or invalid
+    $this.removeClass("is-valid");
+
+    // Remove all form-feedback when new file is added.
+    $(".form-feedback span")
+      .removeClass("is-success is-error")
+      .text("");
+
+    // If file is not selected, show error
     if ($files.length === 0) {
       this.showError($this.closest(".form-group"), "File is required");
+      $this.removeClass("is-valid");
       return;
     }
+
+    // We have accept attribute on input but this validation is in place if user drag and drops the file
+    // If file type is other than json file, throw error
 
     if ($files[0].type !== "application/json") {
       this.showError(
         $this.closest(".form-group"),
         "Only Json file type allowed"
       );
+      $this.removeClass("is-valid");
       return;
     }
 
-    // Read content and throw error if not the right structure up front if user has File Api available
+    // Read file content and throw error if it doesn't have the right data structure
     let reader = new FileReader();
     reader.onload = () => {
       let data;
 
+      // If parsed JSON is not valid, throw error
       try {
         data = JSON.parse(event.target.result);
       } catch (e) {
@@ -81,13 +103,16 @@ class UploadPlayer extends React.Component {
           $this.closest(".form-group"),
           "Something is wrong with Json file"
         );
+        $this.removeClass("is-valid");
         return;
       }
 
+      // If data has any players
       if (data.Players) {
         data = data.Players;
 
         data.forEach(player => {
+          // Validate each object to make sure they have expected data structure
           if (player.Name && player.Age && player.Location) {
             let location = player.Location;
 
@@ -96,6 +121,7 @@ class UploadPlayer extends React.Component {
                 $this.closest(".form-group"),
                 "File doesn't have expected Json data"
               );
+              $this.removeClass("is-valid");
               return;
             }
           } else {
@@ -103,6 +129,7 @@ class UploadPlayer extends React.Component {
               $this.closest(".form-group"),
               "File doesn't have expected Json data"
             );
+            $this.removeClass("is-valid");
             return;
           }
         });
@@ -111,19 +138,25 @@ class UploadPlayer extends React.Component {
           $this.closest(".form-group"),
           "File doesn't have expected Json data"
         );
+        $this.removeClass("is-valid");
         return;
       }
     };
     reader.readAsText($files[0]);
 
+    // Update selected file's name to display to user
     $("span.form-file-name").text($files[0].name);
 
+    // Mark input file is valid
+    $this.addClass("is-valid");
+
+    // Hide error
     this.hideError($this.closest(".form-group"));
   }
 
   showError($source, message) {
     $source.find(".form-error").text(message);
-    $source.addClass("is-invalid");
+    $source.addClass("is-invalid").removeClass("is-valid");
   }
 
   hideError($source) {

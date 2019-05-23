@@ -4,7 +4,8 @@
   "description": "Front end React App for Player Manager. Allows to view, delete and upload new players",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "build": "webpack --mode production"
   },
   "husky": {
     "hooks": {

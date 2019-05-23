@@ -12,6 +12,7 @@ class ViewPlayer extends React.Component {
   }
 
   componentDidMount() {
+    // Get details about Player by making an API call with specific ID
     axios
       .get(
         `http://localhost/player-manager/backend/api/players/${
@@ -20,9 +21,7 @@ class ViewPlayer extends React.Component {
       )
       .then(res => {
         const player = res.data;
-        console.log(player);
         this.setState(() => ({ player }));
-        console.log(this.state);
       });
   }
 
