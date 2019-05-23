@@ -1,7 +1,7 @@
 {
-	"data": [
+	"Players": [
 		{
-			"Name": "Bran Stark",
+			"Name": "Samwell Tarly",
 			"Age": 22,
 			"Location": {
 				"City": "Castle Black",

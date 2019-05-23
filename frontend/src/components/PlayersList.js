@@ -23,7 +23,11 @@ class PlayersList extends React.Component {
     return (
       <div className="PlayersList">
         <div className="PlayersList-title">
-          <h2>List of Players Below</h2>
+          <h2>
+            {this.state.players.length > 0
+              ? "List of Players Below"
+              : "No players available"}
+          </h2>
         </div>
         {this.state.players.map(player => {
           return (

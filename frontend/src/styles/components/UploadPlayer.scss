@@ -1,0 +1,62 @@
+.form-upload {
+  max-width: 400px;
+  button[type=submit] {
+    width: 100%;
+  }
+}
+
+.fileUpload {
+  position: relative;
+  overflow: hidden;
+  margin-top: $gutter;
+  display: flex;
+  align-items: center;
+  padding-bottom: $gutter * 2;
+
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+
+  span.form-file-name {
+    width: 80%;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 8px;
+    margin-right: $gutter;
+    padding: $gutter;
+  }
+}
+
+
+.form-group {
+  .form-error {
+    color: $red;
+    padding: $gutter * 0.5 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+
+.form-feedback {
+  span {
+    display: inline-block;
+    &.is-success {
+      color: $green;
+      padding: 0 0 $gutter;
+    }
+    &.is-error {
+      color: $red;
+      padding: 0 0 $gutter;
+    }
+  }
+}

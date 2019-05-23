@@ -3,6 +3,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 header('Access-Control-Allow-Origin: *');
 
+if($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+    header('Access-Control-Allow-Headers: Content-Type');
+    exit;
+}
+
 
 require (APPPATH . 'libraries/REST_Controller.php');
 use Restserver\Libraries\REST_Controller;
@@ -23,8 +29,8 @@ class API extends REST_Controller {
 				// Send specific player details with 200 status code
 				$this->response($data, 200);
 			} else {
-				// Something went wrong to get player from db, send 400 status code
-				$this->response("Something went wrong, please try again", 400);
+				// No players available, send 200 status code
+				$this->response("No players available", 200);
 			}
 		} else {
 			$data = $this->pm->get_all_players();
@@ -33,15 +39,16 @@ class API extends REST_Controller {
 				// Send all players with 200 status code
 				$this->response($data, 200);
 			} else {
-				// Something went wrong to get players from db, send 400 status code
-				$this->response("Something went wrong, please try again", 400);
+				$data = [];
+				// No players available, send 200 status code
+				$this->response($data, 200);
 			}
 		}
 	}
 	public function players_post() {
 		// add new player
 		$data = [];
-		$dataArr = $this->post('data');
+		$dataArr = $this->post('Players');
 
 		if(isset($dataArr)) {
 			foreach ($dataArr as $player) {
@@ -61,6 +68,7 @@ class API extends REST_Controller {
 					$this->response("Invalid data structure",  400);
 				}
 			}
+			$this->response($data, 200);
 		} else {
 			// Invalid data and send 400 status code
 			$this->response("Invalid data",  400);
@@ -76,8 +84,8 @@ class API extends REST_Controller {
 
 		$file = json_decode($file, true);
 
-		if(isset($file["data"])) {
-			foreach($file["data"] as $player) {
+		if(isset($file["Players"])) {
+			foreach($file["Players"] as $player) {
 
 				if( isset( $player['Name'], $player['Age'], $player['Location']['City'], $player['Location']['Province'], $player['Location']['Country'])) {
 					// File structure checked
@@ -93,6 +101,8 @@ class API extends REST_Controller {
 					$this->response("Invalid data structure",  400);
 				}
 			}
+
+			$this->response($data, 200);
 		} else {
 			// Invalid Json file and send 400 status code
 			$this->response("Invalid JSON file",  400);
@@ -103,13 +113,26 @@ class API extends REST_Controller {
 		$id = $this->get('id');
 
 		if(isset($id)) {
-			$data = $this->pm->delete_player($this->get('id'));
+			$data = $this->pm->delete_player($id);
+
+			if(isset($data)) {
+				// Send data and 200 status code
+				$this->response("Deleted individual player", 200);
+			} else {
+				// Something went wrong and 400 status code
+				$this->response("Something went wrong", 400);
+			}
 			
-			// Send data and 200 status code
-        	$this->response($data, 200);
 		} else {
-			// ID not provided and send 400 status code
-			$this->response("ID not provided",  400);
+			$data = $this->pm->delete_all_players();
+
+			if(isset($data)) {
+				// ID not provided and send 400 status code
+				$this->response("Deleted all players",  200);
+			} else {
+				// Something went wrong and 200 status code
+				$this->response("Something went wrong", 400);
+			}
 		}
 	}
 }

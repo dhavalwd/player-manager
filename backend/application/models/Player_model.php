@@ -39,7 +39,7 @@ class Player_model extends CI_Model {
 		return $query;
 	}
 
-	function delete_player($id) {	
+	function delete_player($id) {
 		if(isset($id)) {
 			$query = null;
 
@@ -54,9 +54,14 @@ class Player_model extends CI_Model {
 				return 'ID ' . $id . ' not found';
 			}
 		} else {
-			return 'ID not provided';
+			$this->db->empty_table('mytable');
 		}
 
 		return null;
+	}
+
+	function delete_all_players() {
+		$query = $this->db->empty_table('players');
+		return $query;
 	}
 }

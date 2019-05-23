@@ -28,6 +28,7 @@
 // Base Styles
 @import './base/variables';
 @import './base/base';
+@import './base/overrides';
 
 // Components
 @import './components/Header';
@@ -35,3 +36,4 @@
 @import './components/Nav';
 @import './components/PlayersList';
 @import './components/Player';
+@import './components/UploadPlayer';
