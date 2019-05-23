@@ -4,7 +4,7 @@ This repository is the back-end source built using `CodeIgniter` PHP framework f
 
 ## Basic Setup
 
-In order to get started, I have attached database file for you to import. [Database File](../player_manager.sql). I have also attached dummy `json` file to upload once your start `React` app. [Database File](../players.json)
+In order to get started, I have attached database file for you to import. [Database File](../player_manager.sql). I have also attached dummy `json` file to upload once your start `React` app. [Json File](../players.json)
 
 ## API Endpoints
 
