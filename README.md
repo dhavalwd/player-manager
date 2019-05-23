@@ -1,6 +1,6 @@
 # Player Manager - Web App
 
-This repository is the for an back-end and front-end sources for **Player Manager** application. This includes [API backend](../backend) built using `CodeIgniter 3` and front-end [web app](../frontend) built using `React JS`
+This repository is the for an back-end and front-end sources for **Player Manager** application. This includes [API backend](/backend) built using `CodeIgniter 3` and front-end [web app](../frontend) built using `React JS`
 
 Individual project `README.MD` files are inside specific folders with more details on implementation and other useful information. This `README` will guide you to setup this project locally.
 
