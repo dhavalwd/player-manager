@@ -34,3 +34,4 @@ backend/vendor/
 # Front end files
 #-------------------------
 frontend/node_modules
+frontend/public/bundle.js

@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 header('Access-Control-Allow-Origin: *');
 
 if($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
-    header('Access-Control-Allow-Headers: Content-Type');
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
     exit;
 }
 

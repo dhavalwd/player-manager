@@ -1,11 +1,10 @@
 {
   "name": "player-manager",
   "version": "1.0.0",
-  "description": "Front end React App for Player Manager",
+  "description": "Front end React App for Player Manager. Allows to view, delete and upload new players",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
-    "build": "webpack --watch"
+    "dev": "webpack-dev-server"
   },
   "husky": {
     "hooks": {

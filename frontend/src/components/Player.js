@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import $ from "jquery";
 
 class Player extends React.Component {
   constructor(props) {
@@ -18,15 +19,26 @@ class Player extends React.Component {
       )
       .then(res => {
         console.log(res);
+        $(".Player-feedback span")
+          .addClass("is-success")
+          .removeClass("is-error")
+          .text("Successfully deleted player");
       })
       .catch(error => {
         console.log(error);
+        $(".Player-feedback span")
+          .addClass("is-error")
+          .removeClass("is-success")
+          .text("Something went wrong, please try again later");
       });
   }
 
   render() {
     return (
       <div className="Player">
+        <div className="Player-feedback">
+          <span />
+        </div>
         <div className="Player-content">
           <div className="Player-name">
             <h2>{this.props.name}</h2>

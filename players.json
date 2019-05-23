@@ -1,21 +1,21 @@
 {
 	"Players": [
 		{
-			"Name": "Samwell Tarly",
+			"Name": "Jon Smith",
 			"Age": 22,
 			"Location": {
-				"City": "Castle Black",
-				"Province": "North",
-				"Country": "GoT"
+				"City": "Halifax",
+				"Province": "Nova Scotia",
+				"Country": "Canada"
 			}
     },
     {
-			"Name": "Rob Stark",
+			"Name": "Sam Smith",
 			"Age": 22,
 			"Location": {
-				"City": "Castle Black",
-				"Province": "North",
-				"Country": "GoT"
+				"City": "Montreal",
+				"Province": "Quebec",
+				"Country": "Canada"
 			}
 		}
 	]

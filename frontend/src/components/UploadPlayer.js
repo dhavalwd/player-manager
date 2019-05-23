@@ -138,7 +138,7 @@ class UploadPlayer extends React.Component {
           <h2>Upload Athletes</h2>
           <form
             onSubmit={this.onSubmitPlayer}
-            action="http://localhost/player-manager/backend/api/data.upload"
+            action="http://localhost/player-manager/backend/api/upload"
             noValidate
             className="form form-upload"
           >

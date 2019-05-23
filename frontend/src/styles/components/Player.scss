@@ -27,3 +27,18 @@ $player-card-width: 300px;
     }
   }
 }
+
+
+.Player-feedback {
+  span {
+    display: inline-block;
+    &.is-success {
+      color: $green;
+      padding: 0 0 $gutter;
+    }
+    &.is-error {
+      color: $red;
+      padding: 0 0 $gutter;
+    }
+  }
+}
