@@ -6,13 +6,10 @@ Individual project `README.MD` files are inside specific folders with more detai
 
 ## Getting Started
 
-To clone this repo: `git clone git@github.com:dhavalwd/player_manager.git`
-
-I have used `XAMPP` to setup this project. You can move this repo to `htdocs` once you clone it.
-
-This repo contains `player_manager.sql` file which you can import using `phpmyadmin`.
-
-Once you import the database, you can open terminal and run `npm run dev` command from `/frontend` folder to start the web app. This should start `webpack-dev-server` on `9001` port. URL: http://localhost:9001
+- To clone this repo: `git clone git@github.com:dhavalwd/player_manager.git`
+- I have used `XAMPP` to setup this project. You can move this repo to `htdocs` once you clone it.
+- This repo contains `player_manager.sql` file which you can import using `phpmyadmin`.
+- Once you import the database, you can open terminal and run `npm run dev` command from `/frontend` folder to start the web app. This should start `webpack-dev-server` on `9001` port. URL: http://localhost:9001
 
 ### For Testing
 
